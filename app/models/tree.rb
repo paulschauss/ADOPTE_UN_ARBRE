@@ -2,10 +2,6 @@ class Tree < ApplicationRecord
   belongs_to :user
 
   validates :price, presence: true
-  validates :quantity_per_year, presence: true
-  validates :address, presence: true
-  validates :fruit, presence: true
-  validates :description, presence: true
-  validates :short_description, presence: true
+  validates :quantity_per_year, presence: true, inclusion: { in: [1, 2, 3, 4, 5] }
   validates :name, presence: true
 end
