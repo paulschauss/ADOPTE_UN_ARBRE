@@ -1,2 +1,10 @@
-<h2><%= @tree.name %></h2>
-<p><%= @tree.address %></p>
+<div class="container">
+  <% if @tree.photo.key %>
+    <%= cl_image_tag @tree.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <h2><%= @tree.name %></h2>
+  <p><%= @tree.address %></p>
+  <%= link_to "Edit", edit_tree_path(@tree) %>
+
+  <%= link_to "Back to list", trees_path %>
+</div>
