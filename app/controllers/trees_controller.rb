@@ -27,7 +27,7 @@ class TreesController < ApplicationController
   end
 
   def update
-    @tree = Tree.update(tree_params)
+    @tree.update(tree_params)
     redirect_to tree_path(@tree)
   end
 
