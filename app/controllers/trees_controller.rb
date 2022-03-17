@@ -12,11 +12,14 @@ class TreesController < ApplicationController
   end
 
   def create
+    @user = current_user
     @tree = Tree.new(tree_params)
-    @tree.save
-
-    redirect_to tree_path(@tree)
-    #render :new
+    @tree.user = @user
+    if @tree.save
+      redirect_to tree_path(@tree)
+    else
+      render :new
+    end
   end
 
   private
