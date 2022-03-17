@@ -1,2 +1,6 @@
-<h2><%= @tree.name %></h2>
-<p><%= @tree.address %></p>
+<div class="container">
+  <h2><%= @tree.name %></h2>
+  <p><%= @tree.address %></p>
+
+  <%= link_to "Back to list", trees_path %>
+</div>
