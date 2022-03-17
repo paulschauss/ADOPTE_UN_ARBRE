@@ -2,9 +2,15 @@
   <% if @tree.photo.key %>
     <%= cl_image_tag @tree.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
-  <h2><%= @tree.name %></h2>
-  <p><%= @tree.address %></p>
+  <div>
+    <h2><%= @tree.name %></h2>
+    <p><%= @tree.address %></p>
+    <%= link_to @tree.user.email, user_path(@tree.user) %>
+  </div>
+
   <%= link_to "Edit", edit_tree_path(@tree) %>
+
+  <%= render 'shared/form_adoption', locales: [ @tree, Adoption.new ]%>
 
   <%= link_to "Back to list", trees_path %>
 </div>

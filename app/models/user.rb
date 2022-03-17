@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :trees
-  has_many :trees, through: :adoption
+  has_many :adoptions
+  # has_many :trees, through: :adoption
 end
