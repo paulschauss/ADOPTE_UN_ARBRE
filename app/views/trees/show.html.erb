@@ -5,7 +5,9 @@
   <div>
     <h2><%= @tree.name %></h2>
     <p><%= @tree.address %></p>
-    <%= link_to @tree.user.email, user_path(@tree.user) %>
+    <%= link_to user_path(@tree.user) do %>
+      <p>Producteur : <%= @tree.user.first_name %> <%= @tree.user.last_name %></p>
+    <% end %>
   </div>
 
   <%= link_to "Edit", edit_tree_path(@tree) %>

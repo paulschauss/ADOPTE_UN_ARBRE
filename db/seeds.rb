@@ -7,17 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Cleaning database..."
-Tree.destroy_all
 User.destroy_all
+Tree.destroy_all
 
 puts "Creating users..."
-# paul = User.create(first_name: 'Paul', last_name: 'Schauss', email: 'paul@localhost.me', password: '123456')
-# jo = User.create(first_name: 'Joséphine', last_name: 'Lazzaris', email: 'josephine@arbre.com', password: '123456')
-# ben = User.create(first_name: 'Ben', last_name: 'Boisson', email: 'ben@arbre.fr', password: 'secret')
 
-paul = User.create(email: 'paul@localhost.me', password: '123456')
-jo = User.create(email: 'josephine@arbre.com', password: '123456')
-ben = User.create(email: 'ben@arbre.fr', password: 'secret')
+paul = User.create(first_name: 'Paul', last_name: 'Schauss', email: 'paul@localhost.me', password: '123456')
+jo = User.create(first_name: 'Joséphine', last_name: 'Lazzaris', email: 'josephine@arbre.com', password: '123456')
+ben = User.create(first_name: 'Benjamin', last_name: 'Boisson', email: 'ben@arbre.fr', password: 'secret')
 
 puts "Creating trees..."
 pommier = { name: "Pommier de polo",
