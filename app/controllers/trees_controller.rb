@@ -3,6 +3,12 @@ class TreesController < ApplicationController
 
   def index
     @trees = Tree.all
+    # if params[:query].present?
+    #   @tree = Tree.where(name: params[:query])
+    # end
+    if params[:query].present?
+      @trees = @trees.where("address ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
