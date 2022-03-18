@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :adoptions, only: [:destroy]
+
+  resources :adoptions, only: [] do
+    resources :reviews, only: [:create]
+  end
 end

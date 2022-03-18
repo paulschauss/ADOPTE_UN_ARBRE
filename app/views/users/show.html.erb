@@ -1,4 +1,19 @@
-<%= @user.email %>
-<% @trees.each do |tree| %>
-  <%= tree.name %>
-<% end %>
+<div class="container">
+  <h1>
+    <%= @user.first_name %>
+    <%= @user.last_name %>
+  </h1>
+
+  <h3>Ses arbres :</h3>
+  <% @trees.each do |tree| %>
+    <p><%= tree.name %></p>
+
+    <p>Review : </p>
+    <% tree.adoptions.each do |adoption| %>
+      <%= adoption.review.rating %>
+      <%= adoption.review.description %>
+    <% end %>
+
+  <% end %>
+
+</div>

@@ -1,15 +1,36 @@
 <div class="container">
-  <%= @user.email %>
+  <h1> Profil de
+    <%= @user.first_name %>
+    <%= @user.last_name %>
+  </h1>
+
   <div>
     <h3>My trees :</h3>
     <% @trees.each do |tree| %>
       <%= tree.name %>
     <% end %>
   </div>
+
   <div>
     <h3>My adoptions :</h3>
     <% @adoptions.each do |adoption| %>
-      <p><%= adoption.name %> : <%= adoption.tree.fruit %> de <%= adoption.tree.name %> </p>
+
+      <h4><%= adoption.name %> : <%= adoption.tree.fruit %> de <%= adoption.tree.name %></h4>
+
+      <% unless adoption.review %>
+        <%= simple_form_for [adoption, Review.new] do |f| %>
+          <%= f.input :rating %>
+          <%= f.input :description %>
+          <%= f.button :submit %>
+        <% end %>
+      <% end %>
+
+      <% unless adoption.review.nil? %>
+        <h5>Review : </h5>
+        <p><%= adoption.review.rating %></p>
+        <p><%= adoption.review.description %></p>
+      <% end %>
+
     <% end %>
   </div>
 </div>
