@@ -1,0 +1,15 @@
+<div class="container">
+  <%= @user.email %>
+  <div>
+    <h3>My trees :</h3>
+    <% @trees.each do |tree| %>
+      <%= tree.name %>
+    <% end %>
+  </div>
+  <div>
+    <h3>My adoptions :</h3>
+    <% @adoptions.each do |adoption| %>
+      <p><%= adoption.name %> : <%= adoption.tree.fruit %> de <%= adoption.tree.name %> </p>
+    <% end %>
+  </div>
+</div>
