@@ -9,12 +9,17 @@
     margin-bottom: 4rem;
   }
 }
-.grid--2-cols {
-  grid-template-columns: repeat(2, 1fr);
+
+@media(min-width: 992px) {
+  .grid--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.grid--3-cols {
-  grid-template-columns: repeat(3, 1fr);
+@media(min-width: 1200px) {
+  .grid--3-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .grid--4-cols {

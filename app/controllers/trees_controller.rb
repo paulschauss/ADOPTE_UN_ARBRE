@@ -1,4 +1,6 @@
 class TreesController < ApplicationController
+  before_action :set_tree, only: [:edit, :update, :show]
+
   def index
     @trees = Tree.all
     # if params[:query].present?
@@ -10,7 +12,6 @@ class TreesController < ApplicationController
   end
 
   def show
-    @tree = Tree.find(params[:id])
   end
 
   def new
@@ -28,9 +29,28 @@ class TreesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @tree.update(tree_params)
+    redirect_to tree_path(@tree)
+  end
+
   private
 
   def tree_params
-    params.require(:tree).permit(:name, :address, :price, :quantity_per_year, :fruit, :description, :short_description)
+    params.require(:tree).permit(:name,
+                                 :address,
+                                 :price,
+                                 :quantity_per_year,
+                                 :fruit,
+                                 :description,
+                                 :short_description,
+                                 :photo)
+  end
+
+  def set_tree
+    @tree = Tree.find(params[:id])
   end
 end
