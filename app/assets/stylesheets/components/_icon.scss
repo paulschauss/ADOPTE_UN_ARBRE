@@ -1,0 +1,11 @@
+.icon-edit {
+  color: #4A4A4A;
+  font-size: 30px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    color: #4A4A4A;
+  }
+}

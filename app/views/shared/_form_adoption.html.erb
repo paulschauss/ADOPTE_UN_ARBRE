@@ -1,6 +1,8 @@
 <div class="card-adoption">
+  <p> Adoptez le <%= @tree.name %> </p>
+  <p>Prix : <%= @tree.price %>€ / an</p>
   <%= simple_form_for locales do |f| %>
-    <%= f.input :name %>
-    <%= f.button :submit %>
+    <%= f.input :name, label: "Nom" %>
+    <%= f.button :submit, "Adopter", class: "btn-add" %>
   <% end %>
 </div>
