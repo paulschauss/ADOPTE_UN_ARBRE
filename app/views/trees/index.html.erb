@@ -1,15 +1,18 @@
 <div class="container">
+  <div style="margin: 20px 0">
+    <%= link_to "Ajouter un arbre", new_tree_path, class: "btn-ghost" %>
+  </div>
   <div class="grid grid--3-cols grid--2-cols grid-margin-bottom">
       <% @trees.each do |tree| %>
         <%= link_to tree_path(tree) do %>
-          <div class="card-tree">
-            <h4><%= tree.name %></h4>
+          <div class="card-tree"
+               style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                                        url('<%= cl_image_path tree.photo.key, height: 300, crop: :fill %>')">
+            <h4 class="title"><%= tree.name %></h4>
             <p class= "price"><%= tree.price %>€ / par an</p>
           </div>
         <% end %>
       <% end %>
     </ul>
   </div>
-
-  <%= link_to "Add a tree", new_tree_path %>
 </div>
