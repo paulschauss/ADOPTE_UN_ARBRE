@@ -1,22 +1,29 @@
 .card-tree {
+  display: flex;
   position: relative;
-  background-color: white;
-  color: black;
-  height: 100px;
-  margin: 8px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
   padding: 8px 12px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transition: all 0.5s;
+  transition: all 0.3s;
 
   &:hover {
     transform: scale(1.01);
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
   .price {
     position: absolute;
     right: 10px;
     bottom: 0px;
+    font-size: 1.1rem;
   }
 }
 
