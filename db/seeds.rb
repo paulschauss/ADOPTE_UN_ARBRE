@@ -17,35 +17,51 @@ jo = User.create(first_name: 'Joséphine', last_name: 'Lazzaris', email: 'joseph
 ben = User.create(first_name: 'Benjamin', last_name: 'Boisson', email: 'ben@arbre.fr', password: 'secret')
 
 puts "Creating trees..."
-pommier = { name: "Pommier de polo",
-            price: 180,
-            address: "7 Boundary St, London E2 7JE",
-            quantity_per_year: 8,
-            fruit: "pomme",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
-            user: paul }
+pommier = Tree.new(name: "Pommier de polo",
+                   price: 140,
+                   address: "7 Boundary St, London E2 7JE",
+                   quantity_per_year: 8,
+                   fruit: "pomme",
+                   description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                   short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
+                   user: paul)
 
-poirier = { name: "Poirier de benjos",
-            price: 180,
-            address: "56A Shoreditch High St, London E1 6PQ",
-            quantity_per_year: 12,
-            fruit: "poire",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
-            user: ben }
+pommier.save!
 
-cocotier = { name: "Cocotier de jojo",
-             price: 180,
-             address: "6 rue des capucins, Lyon 69002",
-             quantity_per_year: 4,
-             fruit: "noix de coco",
-             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-             short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
-             user: jo }
+file = URI.open('https://www.consoglobe.com/wp-content/uploads/2020/12/taille-pommier_shutterstock_72593407.jpg')
+pommier.photo.attach(io: file, filename: 'pommier.png', content_type: 'image/png')
 
-[pommier, poirier, cocotier].each do |attributes|
-  tree = Tree.create!(attributes)
-  puts "Created #{tree.name}"
-end
+puts "Created #{pommier.name}"
+
+poirier = Tree.new(name: "Poirier de benjos",
+                   price: 180,
+                   address: "56A Shoreditch High St, London E1 6PQ",
+                   quantity_per_year: 12,
+                   fruit: "poire",
+                   description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                   short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
+                   user: ben)
+
+poirier.save!
+
+file = URI.open('https://www.gammvert.fr/conseils/sites/default/files/styles/main_image/public/poirier-jr.jpg?itok=JmXIv08z')
+poirier.photo.attach(io: file, filename: 'poirier.png', content_type: 'image/png')
+
+puts "Created #{poirier.name}"
+
+cocotier = Tree.new(name: "Cocotier de jojo",
+                    price: 220,
+                    address: "6 rue des capucins, Lyon 69002",
+                    quantity_per_year: 4,
+                    fruit: "noix de coco",
+                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                    short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
+                    user: jo)
+
+cocotier.save!
+
+file = URI.open('https://jardinage.lemonde.fr/images/dossiers/historique/mini/cocos-nucifera-184616-650-325.jpg')
+cocotier.photo.attach(io: file, filename: 'cocotier.png', content_type: 'image/png')
+
+puts "Created #{cocotier.name}"
 puts "Finished!"
