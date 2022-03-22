@@ -1,18 +1,32 @@
 <div class="container">
-  <% if @tree.photo.key %>
-    <%= cl_image_tag @tree.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-  <div>
-    <h2><%= @tree.name %></h2>
-    <p><%= @tree.address %></p>
-    <%= link_to user_path(@tree.user) do %>
-      <p>Producteur : <%= @tree.user.first_name %> <%= @tree.user.last_name %></p>
+  <div class="btn-layout">
+    <%= link_to "Retour", :back, class: "btn-ghost" %>
+    <% if @tree.user == current_user %>
+      <%= link_to edit_tree_path(@tree) do %>
+        <i class="icon-edit fa-solid fa-pen-to-square"></i>
+      <% end %>
     <% end %>
   </div>
 
-  <%= link_to "Edit", edit_tree_path(@tree) %>
+  <div class="show-tree-main">
+    <h2><%= @tree.name %></h2>
+    <% if @tree.photo.key %>
+      <%= cl_image_tag @tree.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
 
-  <%= render 'shared/form_adoption', locales: [ @tree, Adoption.new ]%>
+  <div class="show-tree-body">
+    <div class="show-tree-text">
+      <p><%= @tree.short_description %></p>
+      <p><%= @tree.description %></p>
+      <p>📍 <%= @tree.address %></p>
+    </div>
 
-  <%= link_to "Back to list", trees_path %>
+    <%= render 'shared/form_adoption', locales: [ @tree, Adoption.new ]%>
+  </div>
+
+    <%= link_to user_path(@tree.user) do %>
+      <p>Producteur : <%= @tree.user.first_name %> <%= @tree.user.last_name %></p>
+    <% end %>
+
 </div>
