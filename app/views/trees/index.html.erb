@@ -12,7 +12,7 @@
         <%= link_to tree_path(tree) do %>
           <div class="card-tree"
                style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                                        url('<%= cl_image_path tree.photo.key, height: 300, crop: :fill %>')">
+                                        url('<%= cl_image_path tree.photo.key, height: 300, object_fit: :contain %>')">
             <h4 class="title"><%= tree.name %></h4>
             <p class= "price"><%= tree.price %>€ / par an</p>
           </div>
