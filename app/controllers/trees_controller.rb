@@ -37,6 +37,7 @@ class TreesController < ApplicationController
   end
 
   def edit
+    redirect_to tree_path(@tree) unless @tree.user == current_user
   end
 
   def update
