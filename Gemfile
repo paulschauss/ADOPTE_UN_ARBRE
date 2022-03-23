@@ -5,6 +5,7 @@ ruby '3.0.3'
 
 gem 'cloudinary', '~> 1.16.0'
 
+
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.5'
@@ -34,6 +35,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form', github: 'heartcombo/simple_form'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'

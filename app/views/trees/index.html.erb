@@ -1,4 +1,8 @@
 <div class="container">
+  <div style="width: 100%; height: 500px;"
+       data-controller="mapbox"
+       data-mapbox-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"
+       data-mapbox-markers-value="<%= @markers.to_json %>"></div>
   <div class="btn-layout">
     <%= link_to "Retour", :back, class: "btn-ghost" %>
     <%= link_to "Ajouter un arbre", new_tree_path, class: "btn-add" %>
