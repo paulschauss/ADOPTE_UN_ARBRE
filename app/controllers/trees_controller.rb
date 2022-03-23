@@ -1,5 +1,5 @@
 class TreesController < ApplicationController
-  before_action :set_tree, only: [:edit, :update, :show]
+  before_action :set_tree, only: %i[edit update show]
 
   def index
     @trees = Tree.all
@@ -8,6 +8,13 @@ class TreesController < ApplicationController
     # end
     if params[:query].present?
       @trees = @trees.where("address ILIKE ?", "%#{params[:query]}%")
+    end
+
+    @markers = @trees.geocoded.map do |tree|
+      {
+        lat: tree.latitude,
+        lng: tree.longitude
+      }
     end
   end
 
