@@ -24,9 +24,11 @@
 
     <%= render 'shared/form_adoption', locales: [ @tree, Adoption.new ]%>
   </div>
-
+  <div class="d-flex">
+    <p> Producteur : </p>
     <%= link_to user_path(@tree.user) do %>
-      <p>Producteur : <%= @tree.user.first_name %> <%= @tree.user.last_name %></p>
+      <p><%= @tree.user.first_name %> <%= @tree.user.last_name %></p>
     <% end %>
+  </div>
 
 </div>
