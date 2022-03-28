@@ -22,12 +22,37 @@
       <p>📍 <%= @tree.address %></p>
     </div>
 
-    <%= render 'shared/form_adoption', locales: [ @tree, Adoption.new ]%>
+    <% unless current_user == @tree.user %>
+      <%= render 'shared/form_adoption', locales: [ @tree, Adoption.new ]%>
+    <% end %>
   </div>
+
   <div class="d-flex">
     <p> Producteur : </p>
     <%= link_to user_path(@tree.user) do %>
       <p><%= @tree.user.first_name %> <%= @tree.user.last_name %></p>
+    <% end %>
+  </div>
+
+  <h4>Reviews</h4>
+
+  <div class="reviews">
+    <% @tree.adoptions.each do |adoption|%>
+      <div class="review">
+
+        <% if adoption.review %>
+          <div class="d-flex">
+            <p>Par : </p>
+            <%= link_to user_path(adoption.review.user) do %>
+              <p> <%= adoption.review.user.first_name %> <%= adoption.review.user.last_name %></p>
+            <% end %>
+          </div>
+          <p><%= adoption.review.rating %> stars</p>
+          <p><%= adoption.review.description %></p>
+        <% else %>
+          <p>l'arbre n'a pas de commentaire</p>
+        <% end %>
+      </div>
     <% end %>
   </div>
 

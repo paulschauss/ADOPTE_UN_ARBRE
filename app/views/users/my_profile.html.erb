@@ -7,7 +7,9 @@
   <div>
     <h3>My trees :</h3>
     <% @trees.each do |tree| %>
-      <%= tree.name %>
+      <%= link_to tree_path(tree) do %>
+        <%= tree.name %>
+      <% end %>
     <% end %>
   </div>
 
@@ -16,13 +18,12 @@
     <% @adoptions.each do |adoption| %>
 
       <h4><%= adoption.name %> : <%= adoption.tree.fruit %> de <%= adoption.tree.name %></h4>
+      <p>depuis : <%= adoption.starts_at %></p>
+      <p>jusqu'a : <%= adoption.ends_at %></p>
 
-      <% unless adoption.review %>
-        <%= simple_form_for [adoption, Review.new] do |f| %>
-          <%= f.input :rating %>
-          <%= f.input :description %>
-          <%= f.button :submit %>
-        <% end %>
+      <% if adoption.review.nil? %>
+        <p>Comment se passe ton adoption ?</p>
+        <%= render 'shared/new_review', locales: [adoption, Review.new] %>
       <% end %>
 
       <% unless adoption.review.nil? %>
