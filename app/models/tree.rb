@@ -1,6 +1,5 @@
 class Tree < ApplicationRecord
   belongs_to :user
-  has_many :trees
   has_many :adoptions, dependent: :destroy
   has_one_attached :photo
 
