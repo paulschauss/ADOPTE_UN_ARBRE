@@ -17,7 +17,7 @@ jo = User.create(first_name: 'Joséphine', last_name: 'Lazzaris', email: 'joseph
 ben = User.create(first_name: 'Benjamin', last_name: 'Boisson', email: 'ben@arbre.fr', password: 'secret')
 
 puts "Creating trees..."
-pommier = Tree.new(name: "Pommier de polo",
+pommier = Tree.create!(name: "Pommier de polo",
                    price: 140,
                    address: "Balmaseda - Antuñano errepidea, 48800 Balmaseda, Espagne",
                    latitude: 43.17080922197847,
@@ -28,14 +28,13 @@ pommier = Tree.new(name: "Pommier de polo",
                    short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
                    user: paul)
 
-pommier.save!
 
 file = URI.open('https://www.consoglobe.com/wp-content/uploads/2020/12/taille-pommier_shutterstock_72593407.jpg')
 pommier.photo.attach(io: file, filename: 'pommier.png', content_type: 'image/png')
 
 puts "Created #{pommier.name}"
 
-poirier = Tree.new(name: "Poirier de benjos",
+poirier = Tree.create!(name: "Poirier de benjos",
                    price: 180,
                    address: "56A Shoreditch High St, London E1 6PQ",
                    longitude: -0.076716,
@@ -46,14 +45,12 @@ poirier = Tree.new(name: "Poirier de benjos",
                    short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
                    user: ben)
 
-poirier.save!
-
 file = URI.open('https://www.gammvert.fr/conseils/sites/default/files/styles/main_image/public/poirier-jr.jpg?itok=JmXIv08z')
 poirier.photo.attach(io: file, filename: 'poirier.png', content_type: 'image/png')
 
 puts "Created #{poirier.name}"
 
-cocotier = Tree.new(name: "Cocotier de jojo",
+cocotier = Tree.create!(name: "Cocotier de jojo",
                     price: 220,
                     address: "Konni, Inde",
                     longitude: 77.12965742449501,
@@ -63,8 +60,6 @@ cocotier = Tree.new(name: "Cocotier de jojo",
                     description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
                     short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
                     user: jo)
-
-cocotier.save!
 
 file = URI.open('https://jardinage.lemonde.fr/images/dossiers/historique/mini/cocos-nucifera-184616-650-325.jpg')
 cocotier.photo.attach(io: file, filename: 'cocotier.png', content_type: 'image/png')
