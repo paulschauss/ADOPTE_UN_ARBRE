@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 2022_03_28_154444) do
 
   create_table "adoptions", force: :cascade do |t|
     t.string "name"
-    t.date "starts_at"
-    t.date "ends_at"
     t.bigint "tree_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "starts_at"
+    t.date "ends_at"
     t.index ["tree_id"], name: "index_adoptions_on_tree_id"
     t.index ["user_id"], name: "index_adoptions_on_user_id"
   end
