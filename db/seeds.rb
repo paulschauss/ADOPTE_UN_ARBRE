@@ -27,7 +27,6 @@ pommier = Tree.create!(name: "Pommier de polo",
                        quantity_per_year: 8,
                        fruit: "Apple",
                        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                       short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
                        user: paul)
 
 file = URI.open('https://www.consoglobe.com/wp-content/uploads/2020/12/taille-pommier_shutterstock_72593407.jpg')
@@ -43,7 +42,6 @@ poirier = Tree.create!(name: "Abricotier de benjos",
                        quantity_per_year: 12,
                        fruit: "Apricot",
                        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                       short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
                        user: ben)
 
 file = URI.open('https://www.gammvert.fr/conseils/sites/default/files/styles/main_image/public/poirier-jr.jpg?itok=JmXIv08z')
@@ -59,7 +57,6 @@ cocotier = Tree.create!(name: "Cocotier de jojo",
                         quantity_per_year: 4,
                         fruit: "Coconut",
                         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                        short_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit sagittis efficitur. Fusce at laoreet nibh.",
                         user: jo)
 
 file = URI.open('https://jardinage.lemonde.fr/images/dossiers/historique/mini/cocos-nucifera-184616-650-325.jpg')

@@ -3,11 +3,12 @@ class TreesController < ApplicationController
 
   def index
     @trees = Tree.all
-    # if params[:query].present?
-    #   @tree = Tree.where(name: params[:query])
-    # end
     if params[:query].present?
-      @trees = @trees.where("address ILIKE ?", "%#{params[:query]}%")
+      @trees = Tree.all.where("address ILIKE ?", "%#{params[:query]}%")
+      if @trees.count == 0
+        @trees = Tree.all
+        flash.alert = "no tree in #{params[:query]}.."
+      end
     end
 
     @markers = @trees.geocoded.map do |tree|
